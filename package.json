@@ -22,6 +22,7 @@
   "homepage": "https://github.com/sbekti/boxmaps#readme",
   "dependencies": {
     "express": "^4.13.1",
+    "http-auth": "^2.2.8",
     "request": "^2.58.0",
     "socket.io": "^1.3.6"
   },

@@ -4,10 +4,17 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var path = require('path');
 var request = require('request');
+var auth = require('http-auth');
+
+var basic = auth.basic({
+    realm: 'GO-BOX internal only',
+    file: __dirname + "/users.htpasswd" // gevorg:gpass, Sarah:testpass ...
+});
 
 var onlineUsers = 0;
 var visitorCount = {};
 
+app.use(auth.connect(basic));
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
